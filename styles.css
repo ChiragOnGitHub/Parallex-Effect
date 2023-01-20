@@ -1,0 +1,134 @@
+/* Good Practice */
+*{
+    margin: 0;
+    padding: 0;
+
+    /* If we increase the padding or margin size of content decrease*/
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height: 100vh;
+    overflow-y: auto;
+
+    /* nothing should overflow in x axis */
+    overflow-x: hidden;
+
+    /* We wanted to work in z axis hence we set perspective here */
+    perspective: 10px;
+}
+
+.container{
+    /* we wanted to apply absolute positioning in images that's why
+    we are making their parent i.e. container position as relative */
+    position: relative; 
+    height:100%;
+
+    /* so that ADVENTURE is in center    */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Telling its children to preserve 3D nature 
+    so that we play with z axis */
+    transform-style: preserve-3d;
+
+    /* Identify do required this? */
+    /* YES */
+    /* Else the whole text of next section will go below the image */
+    z-index: -1;
+}
+
+.background,.foreground{
+    /* So that image will overlap */
+    position:absolute;
+
+    width: 100%;
+    height: 100%;
+
+    /*specify how an image should be resized to fit its container */
+    object-fit: cover;
+
+    /* So that adventure can come above images */
+    z-index: -1;
+}
+
+/* To Add Parallex Effect, We translate images away in z direction
+and scale them so that they looks similar but move slowly */
+.background{
+    transform: translateZ(-40px) scale(5.2);
+}
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+
+/* Just basic configuration for ADVENTURE HEADING */
+h1{
+    position: absolute;
+    top:5rem;
+    font-size: 10rem;
+    letter-spacing: 4px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+section{
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.bg{
+    /* because we are going to let the text overlap 
+    on the image thus we are changing its position */
+    position:relative;
+    width:100%;
+    height: 500px;
+    
+    /* image will be fixed there and 
+    we are allowed to move other things on it */
+    background-attachment: fixed;
+
+    /* so that those image is in center means we have access of
+    center part of the image and it also covered the whole screen */
+    background-position: center;
+    background-size: cover;
+}
+
+.bg1{
+    background-image: url(sport-1.jpg);
+}
+.bg2{
+    background-image: url(sport-2.jpg);
+}
+.bg3{
+    background-image: url(sport-3.jpg);
+}
+
+.desc{
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem 2.5rem;
+    top:50%;
+    left:50%;
+    color: black;
+    font-size: 4rem;
+    font-weight: 800;
+
+    transform: translateX(-140px);
+}
+
+.desc2{
+    transform: translateX(-250px);
+}
+
+.headingAdventure{
+    font-size:5rem;
+    padding:0 10rem;
+}
+
+.text{
+    font-size:1.5rem;
+    padding:0 10rem;
+    margin:5rem 0;
+}
